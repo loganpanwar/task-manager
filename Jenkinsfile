@@ -11,7 +11,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    dockerImage = docker.build("loganpanwar/task-manager")
+                    dockerImage = docker.build("vishulogan/task-manager")
                 }
             }
         }
