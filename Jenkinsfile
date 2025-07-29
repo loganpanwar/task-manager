@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "loganpanwar/task-manager"
+        DOCKER_USERNAME = "vishulogan"
+        DOCKER_IMAGE = "${DOCKER_USERNAME}/task-manager"
     }
 
     stages {
@@ -28,7 +29,7 @@ pipeline {
             steps {
                 script {
                     sh 'docker rm -f task-manager || true'
-                    sh 'docker run -d -p 5000:5000 --name task-manager loganpanwar/task-manager'
+                    sh "docker run -d -p 5000:5000 --name task-manager ${DOCKER_IMAGE}"
                 }
             }
         }
